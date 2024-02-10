@@ -81,4 +81,34 @@ class ArraySolution {
         return intArrayOf(-1, -1)
     }
 
+    /*
+        https://leetcode.com/explore/interview/card/top-interview-questions-easy/92/array/549/
+        Given a non-empty array of integers nums, every element appears twice except for one. Find that single one.
+        You must implement a solution with a linear runtime complexity and use only constant extra space.
+
+        Input: nums = [2,2,1]
+        Output: 1
+     */
+
+    fun singleNumber(nums: IntArray): Int {
+        val map = HashMap<Int, Int>()
+        nums.forEachIndexed { index, i ->
+            if (map[i] == null) map[i] = 1
+            else map[i] = 0
+        }
+        val singleNumber = 0
+        map.entries.forEach {
+            if (it.value == 1) return it.key
+        }
+        return Int.MIN_VALUE
+    }
+
+    fun singleNumberV2(nums: IntArray): Int {
+        var result = 0
+        nums.forEach {
+            result = result.xor(it)
+        }
+        return result
+    }
+
 }

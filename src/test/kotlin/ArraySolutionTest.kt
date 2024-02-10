@@ -41,4 +41,28 @@ internal class ArraySolutionTest {
         val target4 = 10
         assertArrayEquals(intArrayOf(1, 2), arraySolution.twoSumV2(nums4, target4))
     }
+
+    @Test
+    fun `test singleNumber`() {
+        val nums = intArrayOf(2, 2, 1)
+        assertEquals(1, arraySolution.singleNumber(nums))
+
+        val nums2 = intArrayOf(4,1,2,1,2)
+        assertEquals(4, arraySolution.singleNumber(nums2))
+
+        val nums3 = intArrayOf(1)
+        assertEquals(1, arraySolution.singleNumber(nums3))
+    }
+
+    @Test
+    fun `test singleNumberV2`() {
+        val nums = intArrayOf(2, 2, 1)
+        assertEquals(1, arraySolution.singleNumberV2(nums))
+
+        val nums2 = intArrayOf(4,1,2,1,2)
+        assertEquals(4, arraySolution.singleNumberV2(nums2))
+
+        val nums3 = intArrayOf(1)
+        assertEquals(1, arraySolution.singleNumberV2(nums3))
+    }
 }
