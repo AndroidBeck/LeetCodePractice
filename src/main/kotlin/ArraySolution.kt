@@ -48,7 +48,42 @@ class ArraySolution {
      */
 
     fun rotate(nums: IntArray, k: Int): Unit {
+        val size = nums.size
+        val shift = k % size
+        // println("size = $size, k = $k shift = $shift")
+        val nums2 = nums.copyOf()
+        for (i in 0 until size) {
+            val index = (i + shift) % size
+            nums[index] = nums2[i]
+            // println("i = $i, index = $index, nums[$i] = ${nums2[index]}")
+        }
+    }
 
+    fun rotateV2(nums: IntArray, k: Int): Unit {
+        val n = nums.size
+        val steps = k % n // To handle cases where k > n
+
+        // Function to reverse a portion of the array
+        fun reverse(start: Int, end: Int) {
+            var i = start
+            var j = end
+            while (i < j) {
+                val temp = nums[i]
+                nums[i] = nums[j]
+                nums[j] = temp
+                i++
+                j--
+            }
+        }
+
+        // Step 1: Reverse the entire array
+        reverse(0, n - 1)
+
+        // Step 2: Reverse the first k elements
+        reverse(0, steps - 1)
+
+        // Step 3: Reverse the remaining n-k elements
+        reverse(steps, n - 1)
     }
 
     /*

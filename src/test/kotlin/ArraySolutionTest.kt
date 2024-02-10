@@ -65,4 +65,30 @@ internal class ArraySolutionTest {
         val nums3 = intArrayOf(1)
         assertEquals(1, arraySolution.singleNumberV2(nums3))
     }
+
+    @Test
+    fun `test rotate`() {
+        val nums = intArrayOf(1,2,3,4,5,6,7)
+        val k = 3
+        arraySolution.rotate(nums, k)
+        assertArrayEquals(intArrayOf(5,6,7,1,2,3,4), nums)
+
+        val nums2 = intArrayOf(-1,-100,3,99)
+        val k2 = 2
+        arraySolution.rotate(nums2, k2)
+        assertArrayEquals(intArrayOf(3,99,-1,-100), nums2)
+    }
+
+    @Test
+    fun `test rotateV2`() {
+        val nums = intArrayOf(1,2,3,4,5,6,7)
+        val k = 3
+        arraySolution.rotateV2(nums, k)
+        assertArrayEquals(intArrayOf(5,6,7,1,2,3,4), nums)
+
+        val nums2 = intArrayOf(-1,-100,3,99)
+        val k2 = 2
+        arraySolution.rotateV2(nums2, k2)
+        assertArrayEquals(intArrayOf(3,99,-1,-100), nums2)
+    }
 }
