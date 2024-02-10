@@ -56,4 +56,28 @@ class SomeOfMyOtherTasks {
         }
         return sum
     }
+
+    /* Calculate weight of good sub-arrays from incoming array. sub-arrays is good if every it's element satisfies
+    * condition that it is less than the sum of any other 2 elements. Subarrays of 1 or 2 numbers are always good.
+    * Ex: [1, 7, 3, 15, 2, 5, 2, 1, 4] -> 22 (7, 15)  // (1,7,15) not good because 1 + 7 < 15
+    * Ex2: [3, 3, 3, 1, 3, 7, 1] -> 13 (1, 3, 3, 3, 3)
+    */
+    fun calculateWeightOfAGoodSetOfElements(elements: Array<Int>): Int {
+        var weight = 0
+        if (elements.isEmpty()) return 0
+        if (elements.size <= 2) return elements.sum()
+
+        elements.sort()
+        val size = elements.size
+        val localMaxWeight = elements[size - 1] + elements[size - 2]
+        val totalWeight = elements.sum()
+        var left = totalWeight
+        var right = totalWeight
+
+        if (elements[size - 1] >= elements[size -2] + elements[size - 3]) {
+            left = calculateWeightOfAGoodSetOfElements(elements.copyOfRange(1, size))
+            right = calculateWeightOfAGoodSetOfElements(elements.copyOfRange(0, size - 1))
+        }
+        return weight
+    }
 }
