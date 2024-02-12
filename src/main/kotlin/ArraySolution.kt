@@ -167,4 +167,20 @@ class ArraySolution {
         return profit
     }
 
+    /*
+    https://leetcode.com/explore/interview/card/top-interview-questions-easy/92/array/578/
+    Given an integer array nums, return true if any value appears at least twice in the array, and return false if every element is distinct.
+
+    Input: nums = [1,2,3,1]
+    Output: true
+     */
+    fun containsDuplicate(nums: IntArray): Boolean {
+        val map = HashMap<Int, Boolean>()
+        nums.forEach { i ->
+            if (map.get(i) == true) return true
+            map[i] = true
+        }
+        return false
+    }
+
 }

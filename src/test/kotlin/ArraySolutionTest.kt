@@ -103,4 +103,11 @@ internal class ArraySolutionTest {
         val prices3 = intArrayOf(7,6,4,3,1)
         assertEquals(0, arraySolution.maxProfit(prices3))
     }
+
+    @Test
+    fun `test containsDuplicate`() {
+        assertTrue(arraySolution.containsDuplicate(intArrayOf(1,2,3,1)))
+        assertFalse(arraySolution.containsDuplicate(intArrayOf(1,2,3,4)))
+        assertTrue(arraySolution.containsDuplicate(intArrayOf(1,1,1,3,3,4,3,2,4,2)))
+    }
 }
