@@ -124,4 +124,20 @@ internal class ArraySolutionTest {
         //[9,4] is also accepted.
         assertArrayEquals(intArrayOf(4, 9), arraySolution.intersectV2(intArrayOf(4,9,5), intArrayOf(9,4,9,8,4)))
     }
+
+    @Test
+    fun `test plusOne`() {
+        assertArrayEquals(intArrayOf(1,2,4), arraySolution.plusOne(intArrayOf(1,2,3)))
+        assertArrayEquals(intArrayOf(4,3,2,2), arraySolution.plusOne(intArrayOf(4,3,2,1)))
+        assertArrayEquals(intArrayOf(1,0), arraySolution.plusOne(intArrayOf(9)))
+        assertArrayEquals(intArrayOf(1,0,0,0), arraySolution.plusOne(intArrayOf(9,9,9)))
+    }
+
+    @Test
+    fun `test plusOneV2`() {
+        assertArrayEquals(intArrayOf(1,2,4), arraySolution.plusOneV2(intArrayOf(1,2,3)))
+        assertArrayEquals(intArrayOf(4,3,2,2), arraySolution.plusOneV2(intArrayOf(4,3,2,1)))
+        assertArrayEquals(intArrayOf(1,0), arraySolution.plusOneV2(intArrayOf(9)))
+        assertArrayEquals(intArrayOf(1,0,0,0), arraySolution.plusOneV2(intArrayOf(9,9,9)))
+    }
 }
