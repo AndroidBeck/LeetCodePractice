@@ -183,4 +183,51 @@ class ArraySolution {
         return false
     }
 
+    /*
+    https://leetcode.com/explore/interview/card/top-interview-questions-easy/92/array/674/
+    Intersection of Two Arrays II
+    Given two integer arrays nums1 and nums2, return an array of their intersection. Each element in the result
+    must appear as many times as it shows in both arrays and you may return the result in any order.
+
+    Input: nums1 = [1,2,2,1], nums2 = [2,2]
+    Output: [2,2]
+     */
+    fun intersectV1(nums1: IntArray, nums2: IntArray): IntArray {
+        val intersectionList = arrayListOf<Int>()
+        nums1.sort()
+        nums2.sort()
+        var i = 0
+        var j =0
+        while (i < nums1.size && j < nums2.size) {
+            println("nums1[$i] = ${nums1[i]}, nums2[$j] = ${nums2[j]}")
+            if (nums1[i] == nums2[j]) {
+                intersectionList.add(nums1[i])
+                i++
+                j++
+            }
+            else if (nums1[i] > nums2[j]) j++
+            else i++
+        }
+        return intersectionList.toIntArray()
+    }
+
+    fun intersectV2(nums1: IntArray, nums2: IntArray): IntArray {
+        val map1 = mutableMapOf<Int, Int>()
+        val map2 = mutableMapOf<Int, Int>()
+        nums1.forEach {
+            if (map1[it] == null) map1[it] = 1 else map1[it] = map1[it]!!.plus(1)
+        }
+        nums2.forEach {
+            if (map2[it] == null) map2[it] = 1 else map2[it] = map2[it]!!.plus(1)
+        }
+
+        val intersectionList = arrayListOf<Int>()
+        map1.entries.forEach { map1Entry ->
+            map2[map1Entry.key]?.let {
+                val quantity = it.coerceAtMost(map1Entry.value)
+                for (i in 1..quantity) intersectionList.add(map1Entry.key)
+            }
+        }
+        return intersectionList.toIntArray()
+    }
 }

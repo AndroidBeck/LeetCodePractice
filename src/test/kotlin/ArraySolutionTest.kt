@@ -110,4 +110,18 @@ internal class ArraySolutionTest {
         assertFalse(arraySolution.containsDuplicate(intArrayOf(1,2,3,4)))
         assertTrue(arraySolution.containsDuplicate(intArrayOf(1,1,1,3,3,4,3,2,4,2)))
     }
+
+    @Test
+    fun `test intersectV1`() {
+        assertArrayEquals(intArrayOf(2, 2), arraySolution.intersectV1(intArrayOf(1,2,2,1), intArrayOf(2, 2)))
+        //[9,4] is also accepted.
+        assertArrayEquals(intArrayOf(4, 9), arraySolution.intersectV1(intArrayOf(4,9,5), intArrayOf(9,4,9,8,4)))
+    }
+
+    @Test
+    fun `test intersectV2`() {
+        assertArrayEquals(intArrayOf(2, 2), arraySolution.intersectV2(intArrayOf(1,2,2,1), intArrayOf(2, 2)))
+        //[9,4] is also accepted.
+        assertArrayEquals(intArrayOf(4, 9), arraySolution.intersectV2(intArrayOf(4,9,5), intArrayOf(9,4,9,8,4)))
+    }
 }
