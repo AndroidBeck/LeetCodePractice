@@ -279,4 +279,51 @@ class ArraySolution {
         newDigits[0] = 1
         return newDigits
     }
+
+    /*
+    https://leetcode.com/explore/interview/card/top-interview-questions-easy/92/array/567/
+    Move Zeroes
+    Given an integer array nums, move all 0's to the end of it while maintaining the relative order of the non-zero elements.
+    Note that you must do this in-place without making a copy of the array.
+
+    Input: nums = [0,1,0,3,12]
+    Output: [1,3,12,0,0]
+     */
+//    fun moveZeroes(nums: IntArray): Unit {
+//        var i = 0
+//        var j = nums.size - 1
+//        while (i < j) {
+//            println("i = $i, j = $j")
+//            if (nums[j] == 0) {
+//                println("nums[$j] == 0")
+//                j--
+//            } else if (nums[i] == 0) {
+//                println("nums[$i] == 0")
+//                nums[i] = nums[j]
+//                nums[j] = 0
+//                i++
+//                j--
+//            } else {
+//                println("else - i++")
+//                i++
+//            }
+//        }
+//        nums.forEach { print("$it, ") }
+//    }
+
+    fun moveZeroes(nums: IntArray): Unit {
+        if (nums.size < 2) return
+        var i = 0
+        var j = 1
+        while (j < nums.size) {
+            if (nums[i] == 0) {
+                if (nums[j] != 0) {
+                    nums[i] = nums[j]
+                    nums[j] = 0
+                    i++
+                } else { /*Nothing */}
+            } else i++
+            j++
+        }
+    }
 }

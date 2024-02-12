@@ -140,4 +140,19 @@ internal class ArraySolutionTest {
         assertArrayEquals(intArrayOf(1,0), arraySolution.plusOneV2(intArrayOf(9)))
         assertArrayEquals(intArrayOf(1,0,0,0), arraySolution.plusOneV2(intArrayOf(9,9,9)))
     }
+
+    @Test
+    fun `test moveZeroes`() {
+        val nums = intArrayOf(0,1,0,3,12)
+        arraySolution.moveZeroes(nums)
+        assertArrayEquals(intArrayOf(1,3,12,0,0), nums)
+
+        val nums2 = intArrayOf(0)
+        arraySolution.moveZeroes(nums2)
+        assertArrayEquals(intArrayOf(0), nums2)
+
+        val nums3 = intArrayOf(0, 0, 1, 0, 0, 0 , 2, 3, 4, 0, 5, 6, 7, 0, 0, 0)
+        arraySolution.moveZeroes(nums3)
+        assertArrayEquals(intArrayOf(1,2,3,4,5,6,7,0,0,0,0,0,0,0,0,0), nums3)
+    }
 }
