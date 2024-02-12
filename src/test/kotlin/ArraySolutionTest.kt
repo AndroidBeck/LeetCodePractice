@@ -91,4 +91,16 @@ internal class ArraySolutionTest {
         arraySolution.rotateV2(nums2, k2)
         assertArrayEquals(intArrayOf(3,99,-1,-100), nums2)
     }
+
+    @Test
+    fun `test maxProfit`() {
+        val prices = intArrayOf(7,1,5,3,6,4)
+        assertEquals(7, arraySolution.maxProfit(prices))
+
+        val prices2 = intArrayOf(1,2,3,4,5)
+        assertEquals(4, arraySolution.maxProfit(prices2))
+
+        val prices3 = intArrayOf(7,6,4,3,1)
+        assertEquals(0, arraySolution.maxProfit(prices3))
+    }
 }
