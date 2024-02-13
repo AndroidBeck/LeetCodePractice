@@ -289,27 +289,6 @@ class ArraySolution {
     Input: nums = [0,1,0,3,12]
     Output: [1,3,12,0,0]
      */
-//    fun moveZeroes(nums: IntArray): Unit {
-//        var i = 0
-//        var j = nums.size - 1
-//        while (i < j) {
-//            println("i = $i, j = $j")
-//            if (nums[j] == 0) {
-//                println("nums[$j] == 0")
-//                j--
-//            } else if (nums[i] == 0) {
-//                println("nums[$i] == 0")
-//                nums[i] = nums[j]
-//                nums[j] = 0
-//                i++
-//                j--
-//            } else {
-//                println("else - i++")
-//                i++
-//            }
-//        }
-//        nums.forEach { print("$it, ") }
-//    }
 
     fun moveZeroes(nums: IntArray): Unit {
         if (nums.size < 2) return
