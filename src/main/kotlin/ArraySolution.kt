@@ -381,4 +381,37 @@ class ArraySolution {
         }
         return true
     }
+
+    /*
+    https://leetcode.com/explore/interview/card/top-interview-questions-easy/92/array/770/
+    Rotate Image
+    You are given an n x n 2D matrix representing an image, rotate the image by 90 degrees (clockwise).
+    You have to rotate the image in-place, which means you have to modify the input 2D matrix directly.
+    DO NOT allocate another 2D matrix and do the rotation.
+
+    Input: matrix = [[1,2,3],[4,5,6],[7,8,9]]
+    Output: [[7,4,1],[8,5,2],[9,6,3]]
+     */
+    fun rotateImage(matrix: Array<IntArray>): Unit {
+        val n = matrix.size
+        // Step 1. Transpose matrix
+        for (i in 0 until n) {
+            for (j in i until n) {
+                val tmp = matrix[i][j]
+                matrix[i][j] = matrix[j][i]
+                matrix[j][i] = tmp
+            }
+        }
+        // Step 2. Reverse rows
+//                matrix.forEach { row ->
+//                    row.reverse()
+//                }
+        for (i in 0 until n ) {
+            for (j in 0 until n / 2) {
+                val tmp = matrix[i][j]
+                matrix[i][j] = matrix[i][n - 1 - j]
+                matrix[i][n - 1 - j] = tmp
+            }
+        }
+    }
 }
