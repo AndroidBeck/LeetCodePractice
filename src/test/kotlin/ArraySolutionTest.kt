@@ -155,4 +155,39 @@ internal class ArraySolutionTest {
         arraySolution.moveZeroes(nums3)
         assertArrayEquals(intArrayOf(1,2,3,4,5,6,7,0,0,0,0,0,0,0,0,0), nums3)
     }
+
+    @Test
+    fun `test isValidSudoku`() {
+        val array1: Array<CharArray> =
+           arrayOf(
+               charArrayOf('5','3','.','.','7','.','.','.','.'),
+               charArrayOf('6','.','.','1','9','5','.','.','.'),
+               charArrayOf('.','9','8','.','.','.','.','6','.'),
+               charArrayOf('8','.','.','.','6','.','.','.','3'),
+               charArrayOf('4','.','.','8','.','3','.','.','1'),
+               charArrayOf('7','.','.','.','2','.','.','.','6'),
+               charArrayOf('.','6','.','.','.','.','2','8','.'),
+               charArrayOf('.','.','.','4','1','9','.','.','5'),
+               charArrayOf('.','.','.','.','8','.','.','7','9')
+            )
+        assertTrue(arraySolution.isValidSudoku(array1))
+
+        val array2: Array<CharArray> =
+            arrayOf(
+                charArrayOf('8','3','.','.','7','.','.','.','.'),
+                charArrayOf('6','.','.','1','9','5','.','.','.'),
+                charArrayOf('.','9','8','.','.','.','.','6','.'),
+                charArrayOf('8','.','.','.','6','.','.','.','3'),
+                charArrayOf('4','.','.','8','.','3','.','.','1'),
+                charArrayOf('7','.','.','.','2','.','.','.','6'),
+                charArrayOf('.','6','.','.','.','.','2','8','.'),
+                charArrayOf('.','.','.','4','1','9','.','.','5'),
+                charArrayOf('.','.','.','.','8','.','.','7','9')
+            )
+        assertFalse(arraySolution.isValidSudoku(array2))
+
+        // Check V2
+        assertTrue(arraySolution.isValidSudokuV2(array1))
+        assertFalse(arraySolution.isValidSudokuV2(array2))
+    }
 }
