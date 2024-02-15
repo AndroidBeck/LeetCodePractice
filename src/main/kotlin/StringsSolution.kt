@@ -21,4 +21,35 @@ class StringsSolution {
             end--
         }
     }
+
+    /*
+    https://leetcode.com/explore/interview/card/top-interview-questions-easy/127/strings/880/
+    Reverse Integer
+    Given a signed 32-bit integer x, return x with its digits reversed. If reversing x causes the value to go outside
+    the signed 32-bit integer range [-2^31, 2^31 - 1], then return 0.
+    Assume the environment does not allow you to store 64-bit integers (signed or unsigned).
+
+    Example 1: Input: x = 123  Output: 321
+    Example 2: Input: x = -123  Output: -321
+    Example 3: Input: x = 120  Output: 21
+     */
+    fun reverse(x: Int): Int {
+        var input = x
+        var reversed = 0
+
+        val checkingEdgeOfMaxValue = Int.MAX_VALUE / 10 // 2147483647 / 10
+        val checkingEdgeOfMinValue = Int.MIN_VALUE / 10 // -2147483648 / 10
+
+        while (input != 0) {
+            val lastDigit = input % 10
+            input /= 10
+
+            // check Max & Min values
+            if (reversed > checkingEdgeOfMaxValue || (reversed == checkingEdgeOfMaxValue && lastDigit > 7) ) return 0
+            if (reversed < checkingEdgeOfMinValue || (reversed == checkingEdgeOfMinValue && lastDigit < -8) ) return 0
+
+            reversed = reversed * 10 + lastDigit
+        }
+        return reversed
+    }
 }

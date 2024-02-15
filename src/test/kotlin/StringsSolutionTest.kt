@@ -25,4 +25,12 @@ class StringsSolutionTest {
         stringSolution.reverseStringV2(s2)
         assertArrayEquals(charArrayOf('h','a','n','n','a','H'), s2)
     }
+
+    @Test
+    fun reverse() {
+        assertEquals(321, stringSolution.reverse(123))
+        assertEquals(-321, stringSolution.reverse(-123))
+        assertEquals(21, stringSolution.reverse(120))
+        assertEquals(0, stringSolution.reverse(Int.MAX_VALUE))
+    }
 }
