@@ -33,4 +33,11 @@ class StringsSolutionTest {
         assertEquals(21, stringSolution.reverse(120))
         assertEquals(0, stringSolution.reverse(Int.MAX_VALUE))
     }
+
+    @Test
+    fun firstUniqChar() {
+        assertEquals(0, stringSolution.firstUniqChar("leetcode"))
+        assertEquals(2, stringSolution.firstUniqChar("loveleetcode"))
+        assertEquals(-1, stringSolution.firstUniqChar("aabb"))
+    }
 }

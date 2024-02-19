@@ -52,4 +52,26 @@ class StringsSolution {
         }
         return reversed
     }
+
+    /*
+    https://leetcode.com/explore/interview/card/top-interview-questions-easy/127/strings/881/
+    First Unique Character in a String
+
+    Given a string s, find the first non-repeating character in it and return its index. If it does not exist, return -1.
+
+    s consists of only lowercase English letters.
+
+    Input: s = "leetcode"
+    Output: 0
+     */
+    fun firstUniqChar(s: String): Int {
+        val map = hashMapOf<Char, Boolean>()
+        s.forEach {
+            map[it] = map[it] != null
+        }
+        s.forEachIndexed { index, char ->
+            if (map[char] == false) return index
+        }
+        return -1
+    }
 }
