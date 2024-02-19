@@ -74,4 +74,32 @@ class StringsSolution {
         }
         return -1
     }
+
+    /*
+    https://leetcode.com/explore/interview/card/top-interview-questions-easy/127/strings/882/
+    Valid Anagram
+
+    Given two strings s and t, return true if t is an anagram of s, and false otherwise.
+    An Anagram is a word or phrase formed by rearranging the letters of a different word or phrase,
+    typically using all the original letters exactly once.
+
+    Input: s = "anagram", t = "nagaram"
+    Output: true
+
+    s and t consist of lowercase English letters.
+     */
+    fun isAnagram(s: String, t: String): Boolean {
+        val map = hashMapOf<Char, Int>()
+        s.toCharArray().forEach {
+            map[it] = map.getOrDefault(it, 0) + 1
+        }
+        t.toCharArray().forEach {
+            if (map[it] == null) return false
+            map[it] = map[it]!! - 1
+        }
+        map.entries.forEach {
+            if (it.value != 0) return false
+        }
+        return true
+    }
 }

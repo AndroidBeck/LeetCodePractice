@@ -40,4 +40,10 @@ class StringsSolutionTest {
         assertEquals(2, stringSolution.firstUniqChar("loveleetcode"))
         assertEquals(-1, stringSolution.firstUniqChar("aabb"))
     }
+
+    @Test
+    fun isAnagram() {
+        assertTrue(stringSolution.isAnagram("anagram", "nagaram"))
+        assertFalse(stringSolution.isAnagram("rat", "car"))
+    }
 }
