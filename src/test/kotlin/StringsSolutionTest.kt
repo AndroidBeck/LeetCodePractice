@@ -46,4 +46,12 @@ class StringsSolutionTest {
         assertTrue(stringSolution.isAnagram("anagram", "nagaram"))
         assertFalse(stringSolution.isAnagram("rat", "car"))
     }
+
+    @Test
+    fun isPalindrome() {
+        assertTrue(stringSolution.isPalindrome("A man, a plan, a canal: Panama"))
+        assertFalse(stringSolution.isPalindrome("race a car"))
+        // an empty string reads the same forward and backward, it is a palindrome.
+        assertTrue(stringSolution.isPalindrome(" "))
+    }
 }
