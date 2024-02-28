@@ -54,4 +54,14 @@ class StringsSolutionTest {
         // an empty string reads the same forward and backward, it is a palindrome.
         assertTrue(stringSolution.isPalindrome(" "))
     }
+
+    @Test
+    fun myAtoi() {
+        assertEquals(42, stringSolution.myAtoi("42"))
+        assertEquals(-42, stringSolution.myAtoi("   -42"))
+        assertEquals(4193, stringSolution.myAtoi("4193 with words"))
+        assertEquals(0, stringSolution.myAtoi(""))
+        assertEquals(2147483647, stringSolution.myAtoi("21474836460"))
+        assertEquals(-2147483648, stringSolution.myAtoi("-91283472332"))
+    }
 }
