@@ -213,7 +213,7 @@ class StringsSolution {
         var i = 0
 
         while (i < haystack.length) {
-            // println("i = $i, char = ${haystack[i]}, start = $hayStartIndex, neeadle at = $needleIndex")
+            // println("i = $i, char = ${haystack[i]}, start = $hayStartIndex, needle at = $needleIndex")
             if (haystack[i] == needle[needleIndex]) {
                 if (needleIndex++ == 0) hayStartIndex = i
                 if (needleIndex >= needleLength) return hayStartIndex
@@ -234,5 +234,42 @@ class StringsSolution {
             }
         }
         return -1
+    }
+
+    /*
+    https://leetcode.com/explore/interview/card/top-interview-questions-easy/127/strings/887/
+    Longest Common Prefix
+
+    Write a function to find the longest common prefix string amongst an array of strings.
+    If there is no common prefix, return an empty string "".
+
+    Example 1:
+    Input: strs = ["flower","flow","flight"]
+    Output: "fl"
+
+    Constraints:
+        1 <= strs.length <= 200
+        0 <= strs[i].length <= 200
+        strs[i] consists of only lowercase English letters.
+     */
+    fun longestCommonPrefix(strs: Array<String>): String {
+        if (strs.size == 1) return strs[0]
+        // Step1: Find min Length
+        var minLength = 200
+        strs.forEach {
+            if (it.length < minLength) {
+                minLength = it.length
+            }
+        }
+        if (minLength == 0) return ""
+        // Step2: Find prefix
+        var prefix = ""
+        for (i in 0 until minLength) {
+            for (j in 1 until strs.size) {
+                if (strs[j][i] != strs[0][i]) return prefix
+            }
+            prefix += strs[0][i]
+        }
+        return prefix
     }
 }

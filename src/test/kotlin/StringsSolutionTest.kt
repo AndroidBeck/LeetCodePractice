@@ -80,4 +80,11 @@ class StringsSolutionTest {
         assertEquals(2, stringSolution.strStr(haystack = "hello", needle = "ll"))
         assertEquals(4, stringSolution.strStr("mississippi", "issip"))
     }
+
+    @Test
+    fun longestCommonPrefix() {
+        assertEquals("fl", stringSolution.longestCommonPrefix(arrayOf("flower","flow","flight")))
+        assertEquals("", stringSolution.longestCommonPrefix(arrayOf("dog","racecar","car")))
+        assertEquals("", stringSolution.longestCommonPrefix(arrayOf("","b")))
+    }
 }
