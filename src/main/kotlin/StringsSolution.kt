@@ -192,4 +192,47 @@ class StringsSolution {
         }
         return result * sign
     }
+
+    /*
+    https://leetcode.com/explore/interview/card/top-interview-questions-easy/127/strings/885/
+    Implement strStr()
+
+    Given two strings needle and haystack, return the index of the first occurrence of needle in haystack, or -1 if needle is not part of haystack.
+
+    Example 1:
+    Input: haystack = "sadbutsad", needle = "sad"
+    Output: 0
+    Explanation: "sad" occurs at index 0 and 6.
+    The first occurrence is at index 0, so we return 0.
+     */
+    fun strStrV1(haystack: String, needle: String): Int {
+        if (needle.isEmpty()) return 0
+        val needleLength = needle.length
+        var needleIndex = 0
+        var hayStartIndex = 0
+        var i = 0
+
+        while (i < haystack.length) {
+            // println("i = $i, char = ${haystack[i]}, start = $hayStartIndex, neeadle at = $needleIndex")
+            if (haystack[i] == needle[needleIndex]) {
+                if (needleIndex++ == 0) hayStartIndex = i
+                if (needleIndex >= needleLength) return hayStartIndex
+            } else {
+                needleIndex = 0
+                i = hayStartIndex++
+            }
+            i++
+        }
+        return -1
+    }
+
+    fun strStr(haystack: String, needle: String): Int {
+        if (needle.isEmpty()) return 0
+        for (i in 0..haystack.length - needle.length) {
+            if (haystack.substring(i, i + needle.length) == needle) {
+                return i
+            }
+        }
+        return -1
+    }
 }

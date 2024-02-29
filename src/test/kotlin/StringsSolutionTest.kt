@@ -64,4 +64,20 @@ class StringsSolutionTest {
         assertEquals(2147483647, stringSolution.myAtoi("21474836460"))
         assertEquals(-2147483648, stringSolution.myAtoi("-91283472332"))
     }
+
+    @Test
+    fun strStrV1() {
+        assertEquals(0, stringSolution.strStrV1(haystack = "sadbutsad", needle = "sad"))
+        assertEquals(-1, stringSolution.strStrV1(haystack = "leetcode", needle = "leeto"))
+        assertEquals(2, stringSolution.strStrV1(haystack = "hello", needle = "ll"))
+        assertEquals(4, stringSolution.strStrV1("mississippi", "issip"))
+    }
+
+    @Test
+    fun strStr() {
+        assertEquals(0, stringSolution.strStr(haystack = "sadbutsad", needle = "sad"))
+        assertEquals(-1, stringSolution.strStr(haystack = "leetcode", needle = "leeto"))
+        assertEquals(2, stringSolution.strStr(haystack = "hello", needle = "ll"))
+        assertEquals(4, stringSolution.strStr("mississippi", "issip"))
+    }
 }
